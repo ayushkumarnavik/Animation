@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AYUSH KUMAR NAVIK</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI,sans-serif;
+}
+
+body{
+height:100vh;
+overflow:hidden;
+background:linear-gradient(-45deg,#000428,#004e92,#0f2027,#203a43,#2c5364);
+background-size:400% 400%;
+animation:bgmove 15s infinite alternate;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+@keyframes bgmove{
+0%{background-position:0 50%;}
+100%{background-position:100% 50%;}
+}
+
+.container{
+position:relative;
+text-align:center;
+z-index:5;
+}
+
+.name{
+font-size:70px;
+font-weight:bold;
+color:white;
+text-transform:uppercase;
+animation:pulse 2s infinite;
+text-shadow:
+0 0 10px cyan,
+0 0 20px cyan,
+0 0 40px cyan,
+0 0 80px blue;
+}
+
+@keyframes pulse{
+50%{transform:scale(1.05);}
+}
+
+.subtitle{
+margin-top:20px;
+font-size:25px;
+color:#fff;
+letter-spacing:8px;
+animation:float 3s infinite ease-in-out;
+}
+
+@keyframes float{
+50%{
+transform:translateY(-10px);
+}
+}
+
+.ring{
+position:absolute;
+border:3px solid cyan;
+border-radius:50%;
+animation:spin 10s linear infinite;
+}
+
+.r1{
+width:350px;
+height:350px;
+top:-70px;
+left:-70px;
+}
+
+.r2{
+width:450px;
+height:450px;
+top:-120px;
+left:-120px;
+animation-duration:15s;
+border-color:magenta;
+}
+
+@keyframes spin{
+100%{
+transform:rotate(360deg);
+}
+}
+
+.star{
+position:absolute;
+width:4px;
+height:4px;
+background:white;
+border-radius:50%;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+0%{
+transform:translateY(-100vh);
+opacity:1;
+}
+100%{
+transform:translateY(100vh);
+opacity:0;
+}
+}
+
+button{
+margin-top:40px;
+padding:15px 40px;
+font-size:20px;
+border:none;
+border-radius:50px;
+background:linear-gradient(90deg,cyan,blue);
+color:white;
+cursor:pointer;
+box-shadow:0 0 30px cyan;
+transition:.5s;
+}
+
+button:hover{
+transform:scale(1.1);
+box-shadow:0 0 50px magenta;
+}
+
+.line{
+position:absolute;
+width:2px;
+height:100vh;
+background:rgba(255,255,255,0.1);
+animation:scan 4s linear infinite;
+}
+
+@keyframes scan{
+0%{
+transform:translateX(-100vw);
+}
+100%{
+transform:translateX(100vw);
+}
+}
+</style>
+</head>
+<body>
+
+<div class="line"></div>
+
+<div class="container">
+
+<div class="ring r1"></div>
+<div class="ring r2"></div>
+
+<div class="name">
+AYUSH KUMAR NAVIK
+</div>
+
+<div class="subtitle">
+MULTI TALENTED • FUTURE INNOVATOR • NCC CADET
+</div>
+
+<button onclick="alert('Welcome AYUSH KUMAR NAVIK 🚀')">
+ENTER
+</button>
+
+</div>
+
+<script>
+
+//Create 250 stars
+for(let i=0;i<250;i++){
+let s=document.createElement("div");
+s.className="star";
+s.style.left=Math.random()*100+"vw";
+s.style.animationDuration=(Math.random()*8+2)+"s";
+s.style.opacity=Math.random();
+document.body.appendChild(s);
+}
+
+//Mouse glow effect
+document.addEventListener("mousemove",e=>{
+let glow=document.createElement("div");
+glow.style.position="absolute";
+glow.style.left=e.pageX+"px";
+glow.style.top=e.pageY+"px";
+glow.style.width="10px";
+glow.style.height="10px";
+glow.style.borderRadius="50%";
+glow.style.background="cyan";
+glow.style.boxShadow="0 0 30px cyan";
+glow.style.pointerEvents="none";
+document.body.appendChild(glow);
+
+setTimeout(()=>{
+glow.remove();
+},300);
+});
+
+</script>
+
+</body>
+</html>
